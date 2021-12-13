@@ -35,6 +35,7 @@ btnRestartGame.addEventListener("click", () => {
     startGame();
     clearTurn();
     displayButton();
+    closeForm();
 })
 
 function startGame() {
