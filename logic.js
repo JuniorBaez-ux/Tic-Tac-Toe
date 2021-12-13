@@ -16,12 +16,25 @@ const board = document.getElementById("board");
 const winningMessageElement = document.getElementById("winningMessage");
 const restartButton = document.getElementById("restartButton");
 const winningMessageTextElement = document.querySelector("[ data-winning-message-text]");
+const NamesBtn = document.getElementById("btnNames");
+const btnRestartGame = document.getElementById("btnRestart");
 let circleTurn
+let player1 = "";
+let player2 = "";
+
 
 startGame();
 
 restartButton.addEventListener("click", () => {
     startGame();
+    clearTurn();
+    displayButton();
+})
+
+btnRestartGame.addEventListener("click", () => {
+    startGame();
+    clearTurn();
+    displayButton();
 })
 
 function startGame() {
@@ -49,9 +62,6 @@ function handleClick(e) {
         swapTurn();
         setBoardHoverClass();
     }
-    //CheckForWin
-    //CheckForDraw
-    //SwitchPlayer
 }
 
 function endGame(draw) {
@@ -75,6 +85,7 @@ function placeMark(cell, currentClass) {
 
 function swapTurn() {
     circleTurn = !circleTurn;
+    displayCurrentPlayer(player1, player2);
 }
 
 function setBoardHoverClass() {
@@ -93,4 +104,60 @@ function checkWin(currentClass) {
             return cellElements[index].classList.contains(currentClass);
         });
     });
+}
+
+function openForm() {
+    document.getElementById("Names").style.display = "flex";
+}
+
+function closeForm() {
+    document.getElementById("Names").style.display = "none";
+    clearNames();
+}
+
+NamesBtn.addEventListener("click", function(e) {
+    openForm();
+});
+
+function addPlayersName() {
+    try {
+        player1 = document.getElementById("player1").value;
+        player2 = document.getElementById("player2").value;
+        if (player1 === "" || player2 === "") {
+            throw "Please fill in all the fields"
+        }
+        else{
+            closeForm();
+            displayCurrentPlayer(player1, player2);
+            clearNames();
+            closeButton();
+        }
+    } catch (error) {
+        alert("Please fill in all the fields");
+    }
+}
+
+function displayCurrentPlayer(player1, player2) {
+    if(circleTurn) {
+        document.getElementById("playerTurn").innerHTML = player1 + " it is your turn";
+    } else {
+        document.getElementById("playerTurn").innerHTML = player2 + " it is your turn";
+    }
+}
+
+function clearTurn() {
+    document.getElementById("playerTurn").innerHTML = "";
+}
+
+function clearNames() {
+    document.getElementById("player1").value = "";
+    document.getElementById("player2").value = "";
+}
+
+function closeButton(){
+    document.getElementById("btnNames").style.display = "none"
+}
+
+function displayButton(){
+    document.getElementById("btnNames").style.display = "flex"
 }

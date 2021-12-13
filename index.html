@@ -9,8 +9,29 @@
     <script src="./logic.js" defer></script>
 </head>
 <body>
+    <h1 class="Title">Tic Tac Toe</h1>
+
+    <div class="ButtonsD"> 
+        <button id="btnNames" class="btnNames">Insert Names</button>
+        <button class="btnRestart" id="btnRestart">Restart</button>
+    </div>
+
+    <div class="Names" id="Names">
+        <form class="form-container">
+            <label for="player1">Player 1:</label><br>
+            <input type="text" id="player1" name="player1"><br>
+            <label for="player2">Player 2:</label><br>
+            <input type="text" id="player2" name="player2"><br>
+            <button type="button" class="btn" onclick="addPlayersName()">Save</button>
+            <button type="button" class="btn-cancel" onclick="closeForm()">Close</button>
+          </form>
+    </div>
+
+    <div class="Turn" id="Turn">
+        <h2 id="playerTurn"></h2>
+    </div>
+
     <div class="board" id="board">
-    <!-- <h1 id="Title">Tic Tac Toe</h1> -->
         <div class="cell" data-cell></div>
         <div class="cell" data-cell></div>
         <div class="cell" data-cell></div>
@@ -26,5 +47,6 @@
         <div data-winning-message-text></div>
         <button id="restartButton">Restart</button>
     </div>
+
 </body>
 </html>

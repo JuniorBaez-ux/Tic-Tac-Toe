@@ -10,6 +10,45 @@ body{
     --cell-size: 100px;
     --mark-size: calc(var(--cell-size) * .9)
 }
+
+.Title{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.Turn{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.ButtonsD{
+    display: flex;
+    justify-content: center;
+}
+
+.btnNames, .btnRestart{
+    border: none;
+    color: black;
+    background-color: #e7e7e7;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 12px;
+    border: 2px solid #BD6B73;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.btnNames:hover, .btnRestart:hover{
+    background-color: black;
+    color: white;
+}
+
+.btnRestart{
+    margin-left: 10px;
+}
+
 .board {
     width: 100vw;
     height: 100vh;
@@ -145,3 +184,68 @@ body{
 .winning-message.show{
     display: flex;
 }
+
+form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+
+/* Makes the form invisible */
+.Names{
+    display: none;
+    justify-content: center;
+}
+
+/* Add styles to the form container */
+.form-container {
+    max-width: 300px;
+    padding: 10px;
+  }
+  
+  /* Full-width input fields */
+  input[type=text]{
+    width: auto;
+    padding: 15px;
+    margin: 8px 0;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: #8980F5;
+    color: white;
+  }
+  
+  /* When the inputs get focus, do something */
+  input[type=text]:focus {
+    border: 3px solid #555;
+  }
+  
+  /* Set a style for the submit/login button */
+  .form-container .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .btn-cancel{
+    background-color: red;
+    cursor: pointer;
+  }
+
+  .btn-cancel:hover{
+    opacity: 1;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }
